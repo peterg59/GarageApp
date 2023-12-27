@@ -2,7 +2,6 @@ package com.springboot.garageApp.service;
 
 import com.springboot.garageApp.model.Car;
 import com.springboot.garageApp.repository.GarageRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,10 +10,13 @@ import java.util.List;
 @Service
 public class GarageService {
 
-    @Autowired
     private GarageRepository garageRepository;
 
     private static ArrayList<Car> cars = new ArrayList<>();
+
+    public GarageService( GarageRepository garageRepository){
+        this.garageRepository = garageRepository;
+    }
 
     public List<Car> getCars() {
         List<Car> cars = new ArrayList<>();

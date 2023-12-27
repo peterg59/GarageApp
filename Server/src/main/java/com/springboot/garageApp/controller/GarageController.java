@@ -2,7 +2,6 @@ package com.springboot.garageApp.controller;
 
 import com.springboot.garageApp.model.Car;
 import com.springboot.garageApp.service.GarageService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,8 +9,11 @@ import java.util.List;
 @RestController
 public class GarageController {
 
-    @Autowired
     private GarageService garageService;
+
+    public GarageController(GarageService garageService) {
+        this.garageService = garageService;
+    }
 
     @RequestMapping("/cars")
     public List<Car> getCars() {

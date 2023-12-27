@@ -9,9 +9,7 @@ class Car(
     var id: Long,
     var model: String,
     var brand: String,
-    @field:Column(
-        name = "released_year"
-    )
+    @field:Column(name = "released_year")
     var year: Int,
     var color: Color
 ) {

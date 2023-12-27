@@ -21,6 +21,10 @@ public class Car {
     private int year;
     private Color color;
 
+    public Car() {
+
+    }
+
     public Car(long id, String model, String brand, int year, Color color) {
         this.id = id;
         this.model = model;

@@ -27,7 +27,7 @@ public class GarageService {
     }
 
     public Car getCar(long id) {
-        return garageRepository.findById(id).orElse(null);
+        return garageRepository.findById(id).orElse(new Car());
     }
 
     public void deleteCar(long id) {

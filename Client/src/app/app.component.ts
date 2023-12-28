@@ -12,10 +12,10 @@ import { OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   title = 'garage-app';
-  cars: Object
+  cars: any[];
 
   constructor(private garageService: GarageService) {
-
+    this.cars = []
   }
 
   ngOnInit(): void {

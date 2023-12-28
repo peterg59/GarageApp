@@ -16,6 +16,6 @@ export class GarageService {
    }
 
    getCars() {
-      return this.httpClient.get(this.API_URL+this.ENDPOINT_CARS)
+      return this.httpClient.get<any[]>(this.API_URL+this.ENDPOINT_CARS)
    }
 }

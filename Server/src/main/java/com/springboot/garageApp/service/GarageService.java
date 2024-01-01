@@ -12,8 +12,6 @@ public class GarageService {
 
     private GarageRepository garageRepository;
 
-    private static ArrayList<Car> cars = new ArrayList<>();
-
     public GarageService( GarageRepository garageRepository){
         this.garageRepository = garageRepository;
     }

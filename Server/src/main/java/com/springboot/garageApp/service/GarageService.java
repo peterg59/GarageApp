@@ -39,10 +39,14 @@ public class GarageService {
     public void updateCar(Car car, long id) {
         Car carInDB = garageRepository.findById(id).get();
         if(carInDB != null){
-            carInDB.setBrand(car.getBrand());
-            carInDB.setColor(car.getColor());
-            carInDB.setYear(car.getYear());
-            carInDB.setModel(car.getModel());
+            if(car.getBrand() != null)
+                carInDB.setBrand(car.getBrand());
+            if(car.getColor() != null)
+                carInDB.setColor(car.getColor());
+            if(car.getYear() != 0)
+                carInDB.setYear(car.getYear());
+            if(car.getModel() != null)
+                carInDB.setModel(car.getModel());
             garageRepository.save(carInDB);
         }
     }

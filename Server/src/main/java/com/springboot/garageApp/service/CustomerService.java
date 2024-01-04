@@ -39,16 +39,18 @@ public class CustomerService {
     public void updateCustomer(Customer customer, long id){
         Customer customerFound = customerRepository.findById(id).get();
         if(customerFound != null) {
-            if(customer.getName() != null)
-                customerFound.setName(customer.getName());
+            if(customer.getLastName() != null)
+                customerFound.setLastName(customer.getLastName());
             if(customer.getFirstName() != null)
                 customerFound.setFirstName(customer.getFirstName());
             if(customer.getMail() != null)
                 customerFound.setMail(customer.getMail());
             if(customer.getAddress() != null)
                 customerFound.setAddress(customer.getAddress());
-            if(customer.getPhoneNumber() != null)
+            if(customer.getPhoneNumber() != 0)
                 customerFound.setPhoneNumber(customer.getPhoneNumber());
+            if(customer.getAge() != 0)
+                customerFound.setAge(customer.getAge());
             customerRepository.save(customerFound);
         }
     }

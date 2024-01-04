@@ -15,7 +15,7 @@ public class GarageController {
         this.garageService = garageService;
     }
 
-    @RequestMapping("/cars")
+    @RequestMapping(method = RequestMethod.GET, value = "/cars")
     public List<Car> getCars() {
         return garageService.getCars();
     }

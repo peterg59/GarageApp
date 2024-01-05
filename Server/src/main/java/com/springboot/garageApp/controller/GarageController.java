@@ -27,12 +27,16 @@ public class GarageController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/cars")
     public void addCar(@RequestBody Car car) {
-        garageService.addCar(car);
+        if(car != null) {
+            garageService.addCar(car);
+        }
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/car/{id}")
     public void updateCar(@RequestBody Car car,@PathVariable long id) {
-        garageService.updateCar(car, id);
+        if(car != null){
+            garageService.updateCar(car, id);
+        }
     }
     @RequestMapping(method = RequestMethod.DELETE, value = "/car/{id}")
     public void deleteCar(@PathVariable long id) {

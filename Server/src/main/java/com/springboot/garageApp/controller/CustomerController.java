@@ -27,7 +27,9 @@ public class CustomerController {
 
     @RequestMapping(method = RequestMethod.POST, value = "customers")
     public void addCustomer(@RequestBody Customer customer){
-        customerService.addCustomer(customer);
+        if(customer != null) {
+            customerService.addCustomer(customer);
+        }
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "customer/{id}")
@@ -37,6 +39,8 @@ public class CustomerController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "customer/{id}")
     public void updateCustomer(@RequestBody Customer customer,@PathVariable long id){
-        customerService.updateCustomer(customer, id);
+        if(customer != null){
+            customerService.updateCustomer(customer, id);
+        }
     }
 }

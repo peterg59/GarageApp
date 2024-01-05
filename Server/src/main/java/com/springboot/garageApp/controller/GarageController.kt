@@ -17,12 +17,16 @@ class GarageController(private val garageService: GarageService) {
 
     @RequestMapping(method = [RequestMethod.POST], value = ["/cars"])
     fun addCar(@RequestBody car: Car?) {
-        garageService.addCar(car!!)
+        if(car != null){
+            garageService.addCar(car)
+        }
     }
 
     @RequestMapping(method = [RequestMethod.PUT], value = ["/car/{id}"])
     fun updateCar(@RequestBody car: Car?, @PathVariable id: Long) {
-        garageService.updateCar(car!!, id)
+        if(car != null){
+            garageService.updateCar(car, id)
+        }
     }
 
     @RequestMapping(method = [RequestMethod.DELETE], value = ["/car/{id}"])

@@ -32,15 +32,11 @@ class GarageService(private val garageRepository: GarageRepository) {
     fun updateCar(car: Car, id: Long) {
         val carInDB = garageRepository.findById(id).get()
         if (carInDB != null) {
-            carInDB.brand = car.brand
-            carInDB.color = car.color
-            carInDB.year = car.year
-            carInDB.model = car.model
+            if(car.brand != null) carInDB.brand = car.brand
+            if(car.color != null) carInDB.color = car.color
+            if(car.year != 0) carInDB.year = car.year
+            if(car.model != null) carInDB.model = car.model
             garageRepository.save(carInDB)
         }
-    }
-
-    companion object {
-        val cars = ArrayList<Car>()
     }
 }

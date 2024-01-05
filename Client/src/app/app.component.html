@@ -1,11 +1,33 @@
+<html>
+  <head>
+    <title>Template</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="app.component.scss">
+  </head>
 
-<ul>
-    <li *ngFor = "let car of cars">
-      {{car.brand}}
-      {{car.model}}
-      {{car.year}}
-      {{car.color}}
-    </li>
-</ul>
+  <body>
+    <ul>
+      <li *ngFor = "let car of cars">
+        {{car.brand}}
+        {{car.model}}
+        {{car.year}}
+        {{car.color}}
+      </li>
+    </ul>
 
-<router-outlet></router-outlet>
+    <ul>
+      <li *ngFor = "let customer of customers">
+        {{customer.lastName}}
+        {{customer.firstName}}
+        {{customer.age}}
+        {{customer.mail}}
+        {{customer.phoneNumber}}
+        {{customer.address}}
+      </li>
+    </ul>
+  
+  <router-outlet></router-outlet>
+
+  </body>
+</html>
+

@@ -3,18 +3,21 @@ package com.springboot.garageApp.service
 import com.springboot.garageApp.model.Car
 import com.springboot.garageApp.repository.GarageRepository
 import org.springframework.stereotype.Service
+import java.util.function.Consumer
 
 @Service
 class GarageService(private val garageRepository: GarageRepository) {
     val cars: List<Car>
         get() {
-            val cars: MutableList<Car> = ArrayList()
-            garageRepository.findAll().forEach { car: Car? ->
-                if (car != null) {
-                    cars.add(car)
+            val carList: MutableList<Car> = ArrayList()
+            garageRepository.findAll().forEach(
+                Consumer { car: Car? ->
+                    if (car != null) {
+                        carList.add(car)
+                    }
                 }
-            }
-            return cars
+            )
+            return carList
         }
 
     fun getCar(id: Long): Car? {

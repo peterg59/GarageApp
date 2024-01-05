@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*
 class GarageController(private val garageService: GarageService) {
     @get:RequestMapping("/cars")
     val cars: List<Car>
-        get() = GarageService.cars
+        get() = garageService.cars
 
     @RequestMapping(method = [RequestMethod.GET], value = ["/car/{id}"])
     fun getCar(@PathVariable id: Long): Car? {

@@ -11,7 +11,7 @@ class CustomerController(private val customerService: CustomerService) {
         get() = customerService.customers
 
     @RequestMapping(method = [RequestMethod.GET], value = ["/customer/{id}"])
-    fun getCustomer(@PathVariable id: Long): Customer {
+    fun getCustomer(@PathVariable id: Long): Customer? {
         return customerService.getCustomer(id)
     }
 

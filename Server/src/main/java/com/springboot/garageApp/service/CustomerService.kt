@@ -15,7 +15,7 @@ class CustomerService(private val customerRepository: CustomerRepository) {
                     if (customer != null) {
                         customerList.add(customer)
                     }
-                }
+               }
             )
             return customerList
         }

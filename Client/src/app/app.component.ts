@@ -30,4 +30,17 @@ export class AppComponent implements OnInit{
       this.customers = datas;
     })
   }
+
+  addCar(newCarData: any): void {
+    console.log('Debut addCar');
+    this.garageService.addCar(newCarData).subscribe(
+      response => {
+        console.log('Voiture ajoutée avec succès:', response);
+      },
+      error => {
+        console.error('Erreur lors de l\'ajout de la voiture:', error);
+      }
+    )
+    console.log('Fin addCar');
+  }
 }

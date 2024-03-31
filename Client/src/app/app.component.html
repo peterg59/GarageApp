@@ -28,49 +28,27 @@
 
     <form id="carForm">
       <label for="brand">Marque : </label>
-      <input type="text" id="brand" name="brand" required>
+      <input type="text" id="brand" name="brand" required [(ngModel)]="carData.brand">
       <br><br>
       <label for="model">Modèle : </label>
-      <input type="text" id="model" name="model" required>
+      <input type="text" id="model" name="model" required [(ngModel)]="carData.model">
       <br><br>
       <label for="year">Année : </label>
-      <input type="number" id="year" name="year" required>
+      <select id="year" name="year" required [(ngModel)]="carData.year">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
       <br><br>
       <label for="color">Couleur : </label>
-      <input type="text" id="color" name="color" required>
+      <select id="color" name="color" required [(ngModel)]="carData.color">
+        <option value="RED">Rouge</option>
+        <option value="BLUE">Bleu</option>
+        <option value="GREEN">Vert</option>
+        <option value="YELLOW">Jaune</option>
+      </select>
       <br><br>
-      <button type="button" onclick="ajouterVoiture()">Ajouter la voiture</button>
+      <button type="button" (click)="addCar()">Ajouter la voiture</button>
     </form>
 
-    <script>
-      function ajouterVoiture() {
-        console.log('Debut ajouterVoiture');
-          // Récupérer les valeurs du formulaire
-          const brand = document.getElementById('brand').value;
-          const model = document.getElementById('model').value;
-          const year = document.getElementById('year').value;
-          const color = document.getElementById('color').value;
-  
-          // Créer un objet représentant la voiture
-          const voiture = {
-            model: model,
-            brand: brand,
-            year: year,
-            color: color
-          };
-  
-          // Appeler la fonction addCar du composant avec l'objet voiture comme paramètre
-          addCar(voiture);
-  
-          // Effacer les champs du formulaire après l'ajout de la voiture
-          document.getElementById('brand').value = '';
-          document.getElementById('model').value = '';
-          document.getElementById('year').value = '';
-          document.getElementById('color').value = '';
-          console.log('Fin ajouterVoiture');
-      }
-  </script>
-  
   <router-outlet></router-outlet>
 
   </body>

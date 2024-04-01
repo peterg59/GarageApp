@@ -15,7 +15,6 @@ export class AppComponent implements OnInit{
   title = 'garage-app';
   cars: any[];
   customers: any[];
-  // objet pour stocker les données du formulaire d'ajout d'une voiture
   carData: any;
   years: number[];
 
@@ -44,14 +43,11 @@ export class AppComponent implements OnInit{
     }
   }
 
-  // Utilisez cette fonction pour ajouter une voiture
   addCar(): void {
     console.log('Debut addCar', this.carData);
-    // Utilisez l'objet carData pour passer les données du formulaire à la fonction addCar du service
     this.garageService.addCar(this.carData).subscribe(
       response => {
         console.log('Voiture ajoutée avec succès:', response);
-        // Réinitialiser les données du formulaire après l'ajout
         this.carData = { brand: '', model: '', year: null, color: '' };
       },
       error => {

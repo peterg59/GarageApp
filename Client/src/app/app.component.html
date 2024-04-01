@@ -1,62 +1,50 @@
-<html>
-  <head>
-    <title>Template</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="app.component.scss">
-  </head>
+<h1>Mon garage</h1>
 
-  <body>
-    <h1>Mon garage</h1>
+<h3>Liste des voitures : </h3>
+<br><br>
+<ul>
+  <li *ngFor="let car of cars">
+    {{car.brand}}
+    {{car.model}}
+    {{car.year}}
+    {{car.color}}
+  </li>
+</ul>
+<h3>Liste des clients : </h3>
+<br><br>
+<ul>
+  <li *ngFor="let customer of customers">
+    {{customer.lastName}}
+    {{customer.firstName}}
+    {{customer.age}}
+    {{customer.mail}}
+    {{customer.phoneNumber}}
+    {{customer.address}}
+  </li>
+</ul>
 
-    <h3>Liste des voitures : </h3>
-    <br><br>
-    <ul>
-      <li *ngFor = "let car of cars">
-        {{car.brand}}
-        {{car.model}}
-        {{car.year}}
-        {{car.color}}
-      </li>
-    </ul>
-    <h3>Liste des clients : </h3>
-    <br><br>
-    <ul>
-      <li *ngFor = "let customer of customers">
-        {{customer.lastName}}
-        {{customer.firstName}}
-        {{customer.age}}
-        {{customer.mail}}
-        {{customer.phoneNumber}}
-        {{customer.address}}
-      </li>
-    </ul>
+<h3>Ajout d'une voiture : </h3>
+<form id="carForm">
+  <label for="brand">Marque : </label>
+  <input type="text" id="brand" name="brand" required [(ngModel)]="carData.brand">
+  <br><br>
+  <label for="model">Modèle : </label>
+  <input type="text" id="model" name="model" required [(ngModel)]="carData.model">
+  <br><br>
+  <label for="year">Année de construction : </label>
+  <select id="year" name="year" required [(ngModel)]="carData.year">
+    <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+  </select>
+  <br><br>
+  <label for="color">Couleur : </label>
+  <select id="color" name="color" required [(ngModel)]="carData.color">
+    <option value="RED">Rouge</option>
+    <option value="BLUE">Bleu</option>
+    <option value="GREEN">Vert</option>
+    <option value="YELLOW">Jaune</option>
+  </select>
+  <br><br>
+  <button type="button" (click)="addCar()">Ajouter la voiture</button>
+</form>
 
-    <h3>Ajout d'une voiture : </h3>
-    <form id="carForm">
-      <label for="brand">Marque : </label>
-      <input type="text" id="brand" name="brand" required [(ngModel)]="carData.brand">
-      <br><br>
-      <label for="model">Modèle : </label>
-      <input type="text" id="model" name="model" required [(ngModel)]="carData.model">
-      <br><br>
-      <label for="year">Année de construction : </label>
-      <select id="year" name="year" required [(ngModel)]="carData.year">
-        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-      </select>
-      <br><br>
-      <label for="color">Couleur : </label>
-      <select id="color" name="color" required [(ngModel)]="carData.color">
-        <option value="RED">Rouge</option>
-        <option value="BLUE">Bleu</option>
-        <option value="GREEN">Vert</option>
-        <option value="YELLOW">Jaune</option>
-      </select>
-      <br><br>
-      <button type="button" (click)="addCar()">Ajouter la voiture</button>
-    </form>
-
-  <router-outlet></router-outlet>
-
-  </body>
-</html>
-
+<router-outlet></router-outlet>

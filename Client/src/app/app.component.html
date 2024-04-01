@@ -6,6 +6,10 @@
   </head>
 
   <body>
+    <h1>Mon garage</h1>
+
+    <h3>Liste des voitures : </h3>
+    <br><br>
     <ul>
       <li *ngFor = "let car of cars">
         {{car.brand}}
@@ -14,7 +18,8 @@
         {{car.color}}
       </li>
     </ul>
-
+    <h3>Liste des clients : </h3>
+    <br><br>
     <ul>
       <li *ngFor = "let customer of customers">
         {{customer.lastName}}
@@ -26,6 +31,7 @@
       </li>
     </ul>
 
+    <h3>Ajout d'une voiture : </h3>
     <form id="carForm">
       <label for="brand">Marque : </label>
       <input type="text" id="brand" name="brand" required [(ngModel)]="carData.brand">
@@ -33,7 +39,7 @@
       <label for="model">Modèle : </label>
       <input type="text" id="model" name="model" required [(ngModel)]="carData.model">
       <br><br>
-      <label for="year">Année : </label>
+      <label for="year">Année de construction : </label>
       <select id="year" name="year" required [(ngModel)]="carData.year">
         <option *ngFor="let year of years" [value]="year">{{ year }}</option>
       </select>

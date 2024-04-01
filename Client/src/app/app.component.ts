@@ -15,14 +15,14 @@ export class AppComponent implements OnInit{
   title = 'garage-app';
   cars: any[];
   customers: any[];
-
-  // Déclarez un objet pour stocker les données du formulaire d'ajout d'une voiture
+  // objet pour stocker les données du formulaire d'ajout d'une voiture
   carData: any;
-  years: number[] = [];
+  years: number[];
 
   constructor(private garageService: GarageService, private customerService: CustomerService) {
     this.cars = []
     this.customers = []
+    this.years = []
     this.carData = { brand: '', model: '', year: null, color: '' };
     this.populateYears();
   }

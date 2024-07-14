@@ -4,7 +4,6 @@ import com.springboot.garageApp.model.Car;
 import com.springboot.garageApp.repository.GarageRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,15 +16,11 @@ public class GarageService {
     }
 
     public List<Car> getCars() {
-        List<Car> cars = new ArrayList<>();
-        garageRepository.findAll().forEach(car -> {
-            cars.add(car);
-        });
-        return cars;
+        return garageRepository.findAll();
     }
 
     public Car getCar(long id) {
-        return garageRepository.findById(id).orElse(new Car());
+        return garageRepository.findById(id);
     }
 
     public void deleteCar(long id) {
@@ -37,7 +32,7 @@ public class GarageService {
     }
 
     public void updateCar(Car car, long id) {
-        Car carInDB = garageRepository.findById(id).get();
+        Car carInDB = garageRepository.findById(id);
         if(carInDB != null){
             if(car.getBrand() != null)
                 carInDB.setBrand(car.getBrand());

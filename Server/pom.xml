@@ -5,17 +5,17 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.1</version>
+		<version>3.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.springboot</groupId>
+	<groupId>com.example</groupId>
 	<artifactId>garageApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>garageApp</name>
 	<description>Spring Boot for Garage App</description>
 	<properties>
 		<java.version>17</java.version>
-		<kotlin.version>1.9.22</kotlin.version>
+		<kotlin.version>1.9.25</kotlin.version>
 	</properties>
 	<dependencies>
 		<dependency>

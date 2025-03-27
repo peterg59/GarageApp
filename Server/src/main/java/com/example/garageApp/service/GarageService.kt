@@ -1,7 +1,7 @@
-package com.springboot.garageApp.service
+package com.example.garageApp.service
 
-import com.springboot.garageApp.model.Car
-import com.springboot.garageApp.repository.GarageRepository
+import com.example.garageApp.model.Car
+import com.example.garageApp.repository.GarageRepository
 import org.springframework.stereotype.Service
 import java.util.function.Consumer
 

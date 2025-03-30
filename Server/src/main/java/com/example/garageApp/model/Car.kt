@@ -6,7 +6,7 @@ import jakarta.persistence.*
 data class Car(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    var id: Long = 0,
+    val id: Long,
     var model: String? = null,
     var brand: String? = null,
     @Column(name = "released_year")
